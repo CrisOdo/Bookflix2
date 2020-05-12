@@ -19,21 +19,30 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/author', 'AuthorsController@index');
+Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+
+Route::get('/author/show', 'AuthorsController@index');
+Route::get('/author/success', 'AuthorsController@success');
 Route::get('/author/create', 'AuthorsController@create');
 Route::post('/a', 'AuthorsController@store');
 
-Route::get('/genre', 'GenresController@index');
+Route::get('/genre/show', 'GenresController@index');
+Route::get('/genre/success', 'GenresController@success');
 Route::get('/genre/create', 'GenresController@create');
 Route::post('/g', 'GenresController@store');
 
-Route::get('/editorial', 'EditorialsController@index');
+Route::get('/editorial/show', 'EditorialsController@index');
+Route::get('/editorial/succes', 'EditorialsController@success');
 Route::get('/editorial/create', 'EditorialsController@create');
 Route::post('/e', 'EditorialsController@store');
 
-Route::get('/book', 'BooksController@index');
+Route::get('/book/show', 'BooksController@index');
 Route::get('/book/success', 'BooksController@success');
 Route::get('/book/create', 'BooksController@create');
 Route::post('/b', 'BooksController@store');
+
+Route::get('/home', 'HomeController@index');
+Route::get('/profile/show', 'ProfileController@index');

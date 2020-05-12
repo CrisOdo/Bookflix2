@@ -1,14 +1,14 @@
-@extends('home')
+@extends('admin')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card-header">Editorial agregada!</div>
+            <div class="card-header">Listado de autores</div>
             <div class="row pt-1">
-                @foreach ($editoriales as $editorial)
+                @foreach ($autores as $autor)
                 <div class="col-4 pt-4 pb-4">
-                    <h3>{{$editorial->name}}</h3>                    
+                    <h3>{{$autor->name}}</h3>                    
                 </div>
                 @endforeach
             </div>

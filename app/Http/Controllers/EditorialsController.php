@@ -14,17 +14,22 @@ class EditorialsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index(){
       $editoriales=Editorial::orderBy('created_at','DESC')->get();
-      return view('editorial.index', compact('editoriales'));
+      return view('admin.editorial.index', compact('editoriales'));
+    }
+
+    public function success(){
+      $editoriales=Editorial::orderBy('created_at','DESC')->get();
+      return view('admin.editorial.success', compact('editoriales'));
     }
         
     public function create()
     {
-      return view('editorial.create');
+      return view('admin.editorial.create');
     }
 
     public function store()
@@ -37,7 +42,7 @@ class EditorialsController extends Controller
         'name' => $data['name'],
       ]);
   
-      return redirect('/editorial');
+      return redirect('/editorial/success');
   
     }
 }

@@ -14,17 +14,22 @@ class GenresController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index(){
       $generos=Genre::orderBy('created_at','DESC')->get();
-      return view('genre.index', compact('generos'));
+      return view('admin.genre.index', compact('generos'));
+    }
+
+    public function success(){
+      $generos=Genre::orderBy('created_at','DESC')->get();
+      return view('admin.genre.success', compact('generos'));
     }
         
     public function create()
     {
-      return view('genre.create');
+      return view('admin.genre.create');
     }
 
     public function store()
@@ -37,7 +42,7 @@ class GenresController extends Controller
         'name' => $data['name'],
       ]);
   
-      return redirect('/genre');
+      return redirect('/genre/success');
   
     }
 }

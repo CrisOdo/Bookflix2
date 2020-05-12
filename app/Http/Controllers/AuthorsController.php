@@ -14,17 +14,22 @@ class AuthorsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index(){
       $autores=Author::orderBy('created_at','DESC')->get();
-      return view('author.index', compact('autores'));
+      return view('admin.author.index', compact('autores'));
+    }
+
+    public function success(){
+      $autores=Author::orderBy('created_at','DESC')->get();
+      return view('admin.author.success', compact('autores'));
     }
       
     public function create()
     {
-      return view('author.create');
+      return view('admin.author.create');
     }
 
     public function store()
@@ -37,7 +42,7 @@ class AuthorsController extends Controller
         'name' => $data['name'],
       ]);              
 
-      return redirect('/author');
+      return redirect('/author/success');
   
     }
 }

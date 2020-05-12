@@ -20,17 +20,17 @@ class BooksController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
 
     public function index(){
       $libros=Book::orderBy('created_at','DESC')->get();
-      return view('book.index', compact('libros'));
+      return view('admin.book.index', compact('libros'));
     }
 
     public function success(){
       $libros=Book::orderBy('created_at','DESC')->get();
-      return view('book.success', compact('libros'));
+      return view('admin.book.success', compact('libros'));
     }
 
   public function create()
@@ -38,7 +38,7 @@ class BooksController extends Controller
     $autores=Author::all();
     $generos=Genre::all();   
     $editoriales=Editorial::all();
-    return view('book.create', compact('autores','generos','editoriales'));
+    return view('admin.book.create', compact('autores','generos','editoriales'));
   }
 
   public function store()
