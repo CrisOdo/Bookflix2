@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Bookflix                
+                    <img src="/svg/bookflix.svg">               
                 </div>
 
                 <div class="links">

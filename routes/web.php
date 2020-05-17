@@ -46,3 +46,5 @@ Route::post('/b', 'BooksController@store');
 
 Route::get('/home', 'HomeController@index');
 Route::get('/profile/show', 'ProfileController@index');
+Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
+Route::patch('/profile/update', 'ProfileController@update')->name('profile.update');
