@@ -43,11 +43,11 @@
                         <!-- Authentication Links -->
                         <?php if(auth()->guard()->guest()): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
+                            <a class="nav-link" href="<?php echo e(route('login')); ?>">Iniciar Sesion</a>
                         </li>
                         <?php if(Route::has('register')): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                            <a class="nav-link" href="<?php echo e(route('register')); ?>">Registrarse</a>
                         </li>
                         <?php endif; ?>
                         <?php else: ?>
@@ -59,8 +59,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    <?php echo e(__('Logout')); ?>
-
+                                    Cerrar Sesión
                                 </a>
 
                                 <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">

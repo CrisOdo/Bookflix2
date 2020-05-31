@@ -25,7 +25,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-            <<img src="/svg/bookflix.svg" style="max-height: 25px" >
+            <a href="/admin">
+                    <img src="/svg/bookflix.svg" style="max-height: 25px">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php echo e(__('Toggle navigation')); ?>">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,11 +43,11 @@
                         <!-- Authentication Links -->
                         <?php if(auth()->guard()->guest()): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
+                            <a class="nav-link" href="<?php echo e(route('login')); ?>">Iniciar sesión</a>
                         </li>
                         <?php if(Route::has('register')): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                            <a class="nav-link" href="<?php echo e(route('register')); ?>">Registrarse</a>
                         </li>
                         <?php endif; ?>
                         <?php else: ?>
@@ -57,8 +59,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    <?php echo e(__('Logout')); ?>
-
+                                    Cerrar sesión
                                 </a>
 
                                 <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
@@ -83,8 +84,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/author/create">Agregar</a>
-                            <a class="dropdown-item" href="/author/delete">Eliminar</a>
-                            <a class="dropdown-item" href="/author/show">Listar</a>
+                            <a class="dropdown-item" href=>Eliminar</a>
+                            <a class="dropdown-item" href="/author/index">Listar</a>
                         </div>
                     </li>
 
@@ -94,8 +95,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/genre/create">Agregar</a>
-                            <a class="dropdown-item" href="/genre/delete">Eliminar</a>
-                            <a class="dropdown-item" href="/genre/show">Listar</a>
+                            <a class="dropdown-item" href=>Eliminar</a>
+                            <a class="dropdown-item" href="/genre/index">Listar</a>
                         </div>
                     </li>
 
@@ -105,8 +106,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/editorial/create">Agregar</a>
-                            <a class="dropdown-item" href="/editorial/delete">Eliminar</a>
-                            <a class="dropdown-item" href="/editorial/show">Listar</a>
+                            <a class="dropdown-item" href=>Eliminar</a>
+                            <a class="dropdown-item" href="/editorial/index">Listar</a>
                         </div>
                     </li>
 
@@ -116,8 +117,28 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                        
                             <a class="dropdown-item" href="/book/create">Agregar</a>
-                            <a class="dropdown-item" href="/book/delete">Eliminar</a>                            
-                            <a class="dropdown-item" href="/book/show">Listar</a>
+                            <a class="dropdown-item" href=>Eliminar</a>                            
+                            <a class="dropdown-item" href="/book/index">Listar</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Capitulo
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                        
+                            <a class="dropdown-item" href="/chapter/create">Agregar</a>
+                            <a class="dropdown-item" href=>Eliminar</a>                            
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Novedad
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/novedad/create">Agregar</a>
+                            <a class="dropdown-item" href="/novedad/index">Listar</a>
                         </div>
                     </li>
 
@@ -126,8 +147,8 @@
                             Reportes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Suscripciones</a>
-                            <a class="dropdown-item" href="#">Menos leído</a>
+                            <a class="dropdown-item" href=>Suscripciones</a>
+                            <a class="dropdown-item" href=>Menos leído</a>
                         </div>
                     </li>
                 </ul>

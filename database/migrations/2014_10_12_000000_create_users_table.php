@@ -23,10 +23,15 @@ class CreateUsersTable extends Migration
             $table->string('ccv');
             $table->string('año');
             $table->string('mes');
+            $table->string('historial_id');
+            $table->string('favoritos_id');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->index('historial_id');
+            $table->index('favoritos_id');
         });
     }
 

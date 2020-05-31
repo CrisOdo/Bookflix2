@@ -35,7 +35,7 @@ class GenresController extends Controller
     public function store()
     {    
       $data = request()->validate([
-        'name' => 'required',    
+        'name' => ['required', 'unique:genres']
       ]);
   
       \App\Genre::create([

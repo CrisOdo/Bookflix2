@@ -35,7 +35,7 @@ class EditorialsController extends Controller
     public function store()
     {    
       $data = request()->validate([
-        'name' => 'required',    
+        'name' => ['required', 'unique:editorials']    
       ]);
   
       \App\Editorial::create([

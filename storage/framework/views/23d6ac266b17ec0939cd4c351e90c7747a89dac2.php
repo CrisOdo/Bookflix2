@@ -68,12 +68,12 @@
             <?php if(Route::has('login')): ?>
                 <div class="top-right links">
                     <?php if(auth()->guard()->check()): ?>
-                        <a href="<?php echo e(url('/home')); ?>">Home</a>
+                        <a href="<?php echo e(url('/home')); ?>">Inicio</a>
                     <?php else: ?>
-                        <a href="<?php echo e(route('login')); ?>">Login</a>
+                        <a href="<?php echo e(route('login')); ?>">Iniciar Sesión</a>
 
                         <?php if(Route::has('register')): ?>
-                            <a href="<?php echo e(route('register')); ?>">Register</a>
+                            <a href="<?php echo e(route('register')); ?>">Registrarse</a>
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>

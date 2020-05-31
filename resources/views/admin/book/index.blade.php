@@ -10,6 +10,9 @@
                 <div class="col-4 pt-4 pb-4">
                     <h6>{{$libro->name}}</h3>
                     <img src="/storage/{{$libro->image}}" class="w-100">
+                    <button>
+                        <a href="/book/edit/{{$libro->id}}">Editar libro</a> 
+                    </button>
                 </div>
                 @endforeach
             </div>

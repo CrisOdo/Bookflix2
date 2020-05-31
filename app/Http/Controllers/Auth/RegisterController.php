@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Historial;
+use App\Favorito;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -52,12 +54,12 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:255'],
             'titular' => ['required', 'string', 'max:255'],
             'tarjeta' => ['required', 'string', 'min:13','max:18'],
             'ccv' => ['required', 'string', 'max:4', 'min:3'],
-            'año' => ['required', 'string', 'max:2'],
-            'mes' => ['required', 'string', 'max:2'],
+            'año' => ['required', 'string', 'max:2', 'gte:20'],
+            'mes' => ['required', 'string', 'max:2', 'lt:13', 'gt:5'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -70,6 +72,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $miHistorial = Historial::create([
+            'books' =>[],
+            'cantidad' =>0,
+        ]);
+        $miFavoritos = Favorito::create();
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -79,6 +87,8 @@ class RegisterController extends Controller
             'ccv' => $data['ccv'],
             'año' => $data['año'],
             'mes' => $data['mes'],
+            'historial_id'=>$miHistorial->id,
+            'favoritos_id'=>$miFavoritos->id,
             'password' => Hash::make($data['password']),
         ]);
     }

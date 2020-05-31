@@ -10,7 +10,7 @@
                         <?php echo csrf_field(); ?>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right"><?php echo e(__('E-Mail Address')); ?></label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control <?php $__errorArgs = ['email'];
@@ -38,7 +38,7 @@ unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right"><?php echo e(__('Password')); ?></label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control <?php $__errorArgs = ['password'];
@@ -65,32 +65,11 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
-
-                                    <label class="form-check-label" for="remember">
-                                        <?php echo e(__('Remember Me')); ?>
-
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <?php echo e(__('Login')); ?>
-
+                                    Iniciar sesión
                                 </button>
-
-                                <?php if(Route::has('password.request')): ?>
-                                    <a class="btn btn-link" href="<?php echo e(route('password.request')); ?>">
-                                        <?php echo e(__('Forgot Your Password?')); ?>
-
-                                    </a>
-                                <?php endif; ?>
                             </div>
                         </div>
                     </form>
@@ -101,4 +80,4 @@ unset($__errorArgs, $__bag); ?>
 </div>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.login', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Administrator\Bookflix\resources\views/auth/admin-login.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.adminLogin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Administrator\Bookflix\resources\views/auth/admin-login.blade.php ENDPATH**/ ?>

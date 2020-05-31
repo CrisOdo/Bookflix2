@@ -10,6 +10,9 @@
                 <div class="col-4 pt-4 pb-4">
                     <h6><?php echo e($libro->name); ?></h3>
                     <img src="/storage/<?php echo e($libro->image); ?>" class="w-100">
+                    <button>
+                        <a href="/book/edit/<?php echo e($libro->id); ?>">Editar libro</a> 
+                    </button>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>

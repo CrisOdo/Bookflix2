@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">ADMIN Dashboard</div>
+                <div class="card-header">Tablero de ADMIN</div>
 
                 <div class="card-body">
                     <?php if(session('status')): ?>
@@ -13,7 +13,7 @@
                         </div>
                     <?php endif; ?>
 
-                    You are logged in as <strong>ADMIN</strong>!!
+                    Estás logeado como <strong>ADMIN</strong>!!
                 </div>
             </div>
         </div>

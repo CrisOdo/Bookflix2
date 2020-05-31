@@ -8,6 +8,14 @@ class Book extends Model
 {
     protected $guarded = [];
 
+    protected $casts = [
+        'chapters' => 'array',
+    ];
+
+    public function chapters(){
+        return $this ->hasMany(Chapter::class);
+    }
+
     public function genre(){
         return $this ->belongsTo(Genre::class);
     }

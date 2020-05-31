@@ -83,23 +83,19 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            A
+                            Libros
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
+                            <a class="dropdown-item" href="/book/lista">Ver libros</a>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            B
+                            Historial
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
+                            <a class="dropdown-item" href="/historial/index">Ver historial</a>
                         </div>
                     </li>
 
@@ -113,16 +109,12 @@
                             <a class="dropdown-item" href=""></a>
                         </div>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            D
+                            Novedad
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
+                            <a class="dropdown-item" href="/novedad/lista">Listar</a>
                         </div>
                     </li>
                 </ul>
