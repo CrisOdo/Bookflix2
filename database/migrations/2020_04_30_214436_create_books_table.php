@@ -26,6 +26,8 @@ class CreateBooksTable extends Migration
             $table->integer('cantidad');
             $table->json('chapters')->nullable();
             $table->timestamps();
+            $table->dateTime('validoDesde');
+            $table->dateTime('validoHasta');
 
             $table->index('genre_id');
             $table->index('author_id');

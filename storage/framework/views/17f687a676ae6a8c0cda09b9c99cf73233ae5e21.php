@@ -6,14 +6,21 @@
         <div class="col-md-8">
             <div class="card-header">Listado de libros</div>
             <div class="row pt-1">
+
+                
+               
+                
                 <?php $__currentLoopData = $libros; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $libro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php if( ($libro->validoDesde <= date('Y-m-d')) and ($libro->validoHasta >= date('Y-m-d'))): ?>
                 <div class="col-4 pt-4 pb-4">
                     <h6><?php echo e($libro->name); ?></h3>
                         <a href="/book/detalle/<?php echo e($libro->id); ?>">
                             <img src="/storage/<?php echo e($libro->image); ?>" class="w-100">
                         </a>
                 </div>
+                <?php endif; ?>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                
             </div>
         </div>
     </div>

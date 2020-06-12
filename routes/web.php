@@ -39,7 +39,11 @@ Route::get('/editorial/success', 'EditorialsController@success');
 Route::get('/editorial/create', 'EditorialsController@create');
 Route::post('/e', 'EditorialsController@store');
 
+
+
 Route::get('/book/index', 'BooksController@index');
+Route::get('/book/type', 'BooksController@type');
+Route::get('/t', 'BooksController@selectedType');
 Route::get('/book/lista', 'UserBooksController@index');
 Route::get('/book/detalle/{book}', 'UserBooksController@show');
 Route::get('/book/success', 'BooksController@success');
@@ -51,7 +55,8 @@ Route::get('/book/read/{book}', 'UserBooksController@view');
 
 
 
-Route::post('/b', 'BooksController@store');
+Route::post('/be', 'BooksController@storeE');
+Route::post('/bc', 'BooksController@storeC');
 
 Route::get('/chapter/success', 'ChapterController@success');
 Route::get('/chapter/create', 'ChapterController@create');

@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Ingrese los datos de un nuevo libro') }}</div>
                 <div class="card-body">
-                    <form action="/b" enctype="multipart/form-data" method="POST">
+                    <form action="/bc" enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Titulo</label>
@@ -123,7 +123,7 @@
 
 
                         <div class="form-group row">
-                            <label for="archivo" class="col-md-4 col-form-label text-md-right">Archivo</label>
+                            <label for="archivo" class="col-md-4 col-form-label text-md-right">Archivo Capitulo 1</label>
 
                             <div class="col-md-6">
                                 <input id="archivo" type="file" class="form-control @error('archivo') is-invalid @enderror" name="archivo" value="{{ old('archivo') }}" autofocus>
@@ -136,10 +136,39 @@
                             </div>
                         </div>
 
+                        
+                        <div class="form-group row">
+                            <label for="disponibleDesde" class="col-md-4 col-form-label text-md-right">Disponible desde</label>
+
+                            <div class="col-md-6">
+                                <input id="disponibleDesde" type="date" class="form-control @error('disponibleDesde') is-invalid @enderror" name="disponibleDesde" value="{{ old('disponibleDesde') }}" autocomplete="disponibleDesde" autofocus>
+
+                                @error('disponibleDesde')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="Disponible hasta" class="col-md-4 col-form-label text-md-right">Disponible hasta</label>
+
+                            <div class="col-md-6">
+                                <input id="disponibleHasta" type="date" class="form-control @error('disponibleHasta') is-invalid @enderror" name="disponibleHasta" value="{{ old('disponibleHasta') }}" autocomplete="disponibleHasta" autofocus>
+
+                                @error('disponibleHasta')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Dar de alta libro
+                                    Dar de alta libro por capitulos
                                 </button>
                             </div>
                         </div>

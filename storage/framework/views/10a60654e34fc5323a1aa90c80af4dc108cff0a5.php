@@ -14,7 +14,7 @@
                         <?php else: ?>
                        
                         <?php $__currentLoopData = array_reverse($historial->books); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-4 ">
+                        <div class="col-4 pt-8 ">
                             <p style="font-size:12px"><?php echo e($book['name']); ?></p>
                                 <a href="/book/detalle/<?php echo e($book['id']); ?>">
                                     <img src="/storage/<?php echo e($book['image']); ?>" class="w-25">

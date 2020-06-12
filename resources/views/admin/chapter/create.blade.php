@@ -58,7 +58,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Dar de alta book
+                                    Dar de alta capitulo
                                 </button>
                             </div>
                         </div>
