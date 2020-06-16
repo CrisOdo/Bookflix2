@@ -27,4 +27,9 @@ class Book extends Model
     public function editorial(){
         return $this ->belongsTo(Editorial::class);
     }
+
+    public function scopeSearch($query, $s){
+        return $query->where('name', 'like', '%' .$s. '%');
+        
+    }
 }

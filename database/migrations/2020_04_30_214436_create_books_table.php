@@ -28,6 +28,8 @@ class CreateBooksTable extends Migration
             $table->timestamps();
             $table->dateTime('validoDesde');
             $table->dateTime('validoHasta');
+            $table->string('adelanto')->nullable();
+
 
             $table->index('genre_id');
             $table->index('author_id');

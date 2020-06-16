@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Book;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $libros = Book::inRandomOrder()->limit(6)->get();
+    return view('welcome', compact('libros'));
 });
 
 Auth::routes();
@@ -40,7 +42,7 @@ Route::get('/editorial/create', 'EditorialsController@create');
 Route::post('/e', 'EditorialsController@store');
 
 
-
+Route::get('/book/search', 'UserBooksController@search');
 Route::get('/book/index', 'BooksController@index');
 Route::get('/book/type', 'BooksController@type');
 Route::get('/t', 'BooksController@selectedType');
@@ -48,11 +50,19 @@ Route::get('/book/lista', 'UserBooksController@index');
 Route::get('/book/detalle/{book}', 'UserBooksController@show');
 Route::get('/book/success', 'BooksController@success');
 Route::get('/book/create', 'BooksController@create');
-Route::get('/book/edit/{book}', 'BooksController@edit')->name('book.edit');
-Route::patch('/book/update/{book}', 'BooksController@update')->name('book.update');
+Route::get('/book/editE/{book}', 'BooksController@editE');
+Route::get('/book/editC/{book}', 'BooksController@editC');
+Route::patch('/book/updateE/{book}', 'BooksController@updateE');
+Route::patch('/book/updateC/{book}', 'BooksController@updateC');
 Route::get('/book/modified', 'BooksController@modified');
 Route::get('/book/read/{book}', 'UserBooksController@view');
+Route::get('/book/readAdelanto/{book}', 'UserBooksController@viewAdelanto');
+Route::get('/book/deleteAdelanto/{book}', 'BooksController@deleteAdelanto');
 
+
+Route::get('/book/deleteConfirm/{book}', 'BooksController@confirm');
+Route::delete('/book/delete/{book}', 'BooksController@delete');
+Route::get('/book/deleted', 'BooksController@deleted');
 
 
 Route::post('/be', 'BooksController@storeE');
@@ -61,7 +71,11 @@ Route::post('/bc', 'BooksController@storeC');
 Route::get('/chapter/success', 'ChapterController@success');
 Route::get('/chapter/create', 'ChapterController@create');
 Route::get('/chapter/read/{chapter}', 'UserChaptersController@view');
+Route::get('/chapter/delete/{chapter}', 'ChapterController@confirm');
+Route::delete('/chapter/delete/{chapter}', 'ChapterController@delete');
+Route::get('/chapter/deleted', 'ChapterController@deleted');
 Route::post('/c', 'ChapterController@store');
+
 
 
 

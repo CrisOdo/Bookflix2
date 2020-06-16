@@ -17,7 +17,8 @@ class CreateChaptersTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('book_id');
-            $table->string('archivo')->nullable();
+            $table->string('archivo');
+            $table->string('miPosicion')->nullable();
             $table->timestamps();
         });
     }

@@ -164,6 +164,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="adelanto" class="col-md-4 col-form-label text-md-right">Adelanto</label>
+
+                            <div class="col-md-6">
+                                <input id="adelanto" type="file" class="form-control @error('adelanto') is-invalid @enderror" name="adelanto" value="{{ old('adelanto') }}" autofocus>
+
+                                @error('adelanto')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

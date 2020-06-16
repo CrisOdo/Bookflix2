@@ -6,6 +6,7 @@ use App\Author;
 use App\Editorial;
 use App\Genre;
 use App\Book;
+use App\Chapter;
 use Intervention\Image\Facades\Image;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
@@ -30,6 +31,56 @@ class ChapterController extends Controller
     return view('admin.book.index', compact('libros'));
   }
 
+  public function confirm($idC)
+  {
+    $capitulo = Chapter::find($idC);
+    $idLibro = $capitulo->book_id;
+    $libro = Book::find($idLibro);
+    return view('admin.chapter.delete', compact('libro', 'capitulo'));
+  }
+
+  public function delete($id)
+  {
+    $capitulo = Chapter::find($id);
+
+    $idLibro = $capitulo->book_id;
+    $libro = Book::find($idLibro);
+
+    $listado = $libro->chapters;
+    $cantidad = $libro->cantidad;
+
+    unset($listado[$capitulo->miPosicion]);
+    $cantidad = $cantidad - 1;
+
+
+    for ($i=$capitulo->miPosicion +1; $i <= count($listado) ; $i++) { 
+      ($listado[$i]['miPosicion'] = $listado[$i]['miPosicion']-1);
+      $capituloco = Chapter::find($listado[$i]['id']);
+
+      $capituloco->update([
+        'miPosicion' => $listado[$i]['miPosicion'],
+      ]);
+    }
+
+    $listado = array_values($listado);
+
+
+    $libro->update([
+      'chapters' => $listado,
+      'cantidad' => $cantidad,
+    ]);
+
+    $capitulo->delete();
+
+    return redirect("/chapter/deleted");
+  }
+
+  public function deleted()
+  {
+    return view('admin.chapter.deleted');
+  }
+
+
   public function success()
   {
     return view('admin.chapter.success');
@@ -46,29 +97,33 @@ class ChapterController extends Controller
     $data = request()->validate([
       'name' => 'required',
       'book_id' => 'required',
-      'archivo' =>['required', 'mimes:pdf'], 
+      'archivo' => ['required', 'mimes:pdf'],
     ]);
-    
+
     $filePath = request('archivo')->store('uploads', 'public');
 
-      $newChapter=\App\Chapter::create([
-        'name' => $data['name'],
-        'book_id' => $data['book_id'],
-        'archivo' => $filePath,
-      ]);
+    $newChapter = \App\Chapter::create([
+      'name' => $data['name'],
+      'book_id' => $data['book_id'],
+      'archivo' => $filePath,
+    ]);
 
 
-      $libro = Book::find($data['book_id']);
-      $listado = $libro->chapters;
-      $cantidad = $libro->cantidad;  
-      $listado[$cantidad] =  $newChapter;
-      $cantidad = $cantidad + 1;
-      $libro->update([
-        'chapters' => $listado,
-        'cantidad' =>$cantidad,
-      ]);
-      
-      
+    $libro = Book::find($data['book_id']);
+    $listado = $libro->chapters;
+    $cantidad = $libro->cantidad;
+    $listado[$cantidad] =  $newChapter;
+
+    $newChapter->update([
+      'miPosicion' => $cantidad,
+    ]);
+
+    $cantidad = $cantidad + 1;
+    $libro->update([
+      'chapters' => $listado,
+      'cantidad' => $cantidad,
+    ]);
+
     return redirect('/chapter/success');
   }
   public function edit($idLibro)
@@ -116,8 +171,7 @@ class ChapterController extends Controller
       ]);
     }
     return redirect("/book/modified");
- 
-}
+  }
   public function modified()
   {
     return view('admin.book.modified');

@@ -5,11 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card-header">Listado de libros</div>
-            <div class="row pt-1">
-
-                
-               
-                
+            <div class="row pt-1">      
                 <?php $__currentLoopData = $libros; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $libro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <?php if( ($libro->validoDesde <= date('Y-m-d')) and ($libro->validoHasta >= date('Y-m-d'))): ?>
                 <div class="col-4 pt-4 pb-4">
@@ -19,8 +15,7 @@
                         </a>
                 </div>
                 <?php endif; ?>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>                
             </div>
         </div>
     </div>

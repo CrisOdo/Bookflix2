@@ -16,6 +16,20 @@
                         <p><?php echo e($genero->name); ?></p>
                         <h4>Editorial:</h4>
                         <p><?php echo e($editorial->name); ?></p>
+                        <?php if($libro->adelanto != null): ?>
+                        <div class="col-12">
+                            <form action="/book/readAdelanto/<?php echo e($libro->id); ?>" enctype="multipart/form-data" method="GET">
+                                <?php echo csrf_field(); ?>
+                                <div class="form-group row">
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">
+                                            Ver adelanto
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <?php endif; ?>
                     </div>
 
                     <div class="col-4 center">

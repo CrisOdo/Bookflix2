@@ -35,6 +35,21 @@ class UserBooksController extends Controller
       return response()->file($pathToFile);
     }
 
+    
+
+    public function viewAdelanto($id)
+    {
+      $libro = Book::find($id);
+      $pathToFile = 'C:/Users/Administrator/Bookflix/storage/app/public/'. $libro->adelanto;
+      return response()->file($pathToFile);
+    }
+
+    public function search(Request $request)
+    {
+      $s = $request->input('s');  
+      $libros = Book::search($s)->get();
+      return view('user.book.search', compact('libros'));
+    }
 
     public function show($id)
     {

@@ -98,17 +98,6 @@
                             <a class="dropdown-item" href="/historial/index">Ver historial</a>
                         </div>
                     </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            C
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
-                            <a class="dropdown-item" href=""></a>
-                        </div>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Novedad
@@ -116,6 +105,16 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/novedad/lista">Listar</a>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <form action="/book/search" method="get" class="form-inline">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="s" placeholder="Buscar" value="<?php echo e(isset($s) ? $s : ''); ?>">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Buscar</button>
+                            </div>
+                        </form>
                     </li>
                 </ul>
             </div>

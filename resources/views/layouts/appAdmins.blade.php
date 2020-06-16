@@ -116,8 +116,7 @@
                             Libro
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                        
-                            <a class="dropdown-item" href="/book/type">Agregar</a>
-                            <a class="dropdown-item" href=>Eliminar</a>                            
+                            <a class="dropdown-item" href="/book/type">Agregar</a>                                           
                             <a class="dropdown-item" href="/book/index">Listar</a>
                         </div>
                     </li>
