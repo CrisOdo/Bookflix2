@@ -9,11 +9,11 @@
 
                 <div class="card-body">
                     <div class="row pt-1">
-                        @if ($historial->cantidad == 0)
+                        @if ($cantidad == 0)
                         <h4>Historial vacío</h4>
                         @else
                        
-                        @foreach ( array_reverse($historial->books)  as $book)
+                        @foreach ( array_reverse($historial)  as $book)
                         <div class="col-4 ">
                             <p style="font-size:12px">{{$book['name']}}</p>
                                 <a href="/book/detalle/{{$book['id']}}">

@@ -23,8 +23,12 @@ class CreateBooksTable extends Migration
             $table->unsignedBigInteger('genre_id');
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('editorial_id');
+            $table->string('vecesTerminado')->nullable();
+            $table->string('totalCapitulos')->nullable();
             $table->integer('cantidad');
             $table->json('chapters')->nullable();
+            $table->json('comentarios')->nullable();
+            $table->integer('cantidadComentarios')->nullable();
             $table->timestamps();
             $table->dateTime('validoDesde');
             $table->dateTime('validoHasta');

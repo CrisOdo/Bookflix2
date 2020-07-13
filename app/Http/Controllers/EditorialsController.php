@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Editorial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class EditorialsController extends Controller
 {
@@ -42,7 +43,7 @@ class EditorialsController extends Controller
         'name' => $data['name'],
       ]);
   
-      return redirect('/editorial/success');
+      return Redirect::back();
   
     }
 }

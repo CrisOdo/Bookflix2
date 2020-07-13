@@ -6,6 +6,7 @@ use App\Historial;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use App\Perfil;
 
 class HistorialesController extends Controller
 {
@@ -20,11 +21,15 @@ class HistorialesController extends Controller
     }
 
     public function index()
-    {      
-      $miId = Auth::user()->id;
-      $user = User::find($miId);
-      $historial = Historial::find($user->historial_id);      
+    {          
+      $usuario = Auth::user();
+      $perfil=$usuario->perfilElegido;
+      $perfilElegido = Perfil::find($perfil);   
+      $historial = $perfilElegido->historial_id;
+      $objetoHistorial = Historial::find($historial); 
+      $historial = $objetoHistorial->books;       
+      $cantidad = $objetoHistorial->cantidad;      
 
-      return view('user.historial.index', compact('historial'));
+      return view('user.historial.index', compact('historial','cantidad'));
     }   
 }

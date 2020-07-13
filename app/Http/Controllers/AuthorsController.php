@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthorsController extends Controller
 {
@@ -42,7 +43,7 @@ class AuthorsController extends Controller
         'name' => $data['name'],
       ]);              
 
-      return redirect('/author/success');
+      return Redirect::back();
   
     }
 }

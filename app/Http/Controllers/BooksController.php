@@ -96,6 +96,9 @@ class BooksController extends Controller
       'validoDesde' => $data['disponibleDesde'],
       'validoHasta' => $data['disponibleHasta'],
       'adelanto' => $filePath2,
+      'vecesTerminado' => 0,
+      'cantidadComentarios' => 0,
+      'comentarios' => [],      
     ]);
 
     return redirect('/book/success');
@@ -115,6 +118,7 @@ class BooksController extends Controller
       'disponibleDesde' => ['required', 'after_or_equal: today'],
       'disponibleHasta' => ['required', 'after_or_equal: tomorrow'],
       'adelanto' => ['required', 'mimes:pdf'],
+      'totalCapitulos' => ['required', 'numeric'],
     ]);
 
     $imagePath = request('image')->store('uploads', 'public');
@@ -138,6 +142,10 @@ class BooksController extends Controller
       'validoDesde' => $data['disponibleDesde'],
       'validoHasta' => $data['disponibleHasta'],
       'adelanto' => $filePath2,
+      'totalCapitulos'=> $data['totalCapitulos'],
+      'vecesTerminado' => 0,
+      'cantidadComentarios' => 0,
+      'comentarios' => [],
     ]);
 
     $newChapter = \App\Chapter::create([

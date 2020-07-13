@@ -10,7 +10,7 @@
                     <form method="POST" action="/book/delete/{{$libro->id}}" enctype="multipart/form-data">
                             @csrf
                             @method('DELETE')
-                            <div class="card-header">¿Está seguro que desea eliminar el libro {{$libro->name}} ?</div>
+                            <div>¿Está seguro que desea eliminar el libro {{$libro->name}}?</div>
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     Confirmar

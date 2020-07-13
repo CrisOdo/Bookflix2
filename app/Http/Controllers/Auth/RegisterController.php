@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Historial;
 use App\Favorito;
+use App\Perfil;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -31,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::PROF;
 
     /**
      * Create a new controller instance.
@@ -72,11 +73,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $miHistorial = Historial::create([
+        $primerHistorial = Historial::create([
             'books' =>[],
             'cantidad' =>0,
         ]);
-        $miFavoritos = Favorito::create();
+        $primerFavoritos = Favorito::create([
+            'books' =>[],
+            'cantidad' =>0,
+        ]);
+        $primerPerfil = Perfil::create([
+            'name' => $data['username'],
+            'miPosicion'=>0,
+            'historial_id'=>$primerHistorial->id,
+            'favoritos_id'=>$primerFavoritos->id,
+        ]);
+        
 
         return User::create([
             'name' => $data['name'],
@@ -87,8 +98,12 @@ class RegisterController extends Controller
             'ccv' => $data['ccv'],
             'año' => $data['año'],
             'mes' => $data['mes'],
-            'historial_id'=>$miHistorial->id,
-            'favoritos_id'=>$miFavoritos->id,
+            'librosTerminados' => [],
+            'spoilerAlert'=>true,
+            'tipo'=>1,
+            'perfilesActivos'=>1,            
+            'perfilElegido'=>1,
+            'perfiles'=>[$primerPerfil],
             'password' => Hash::make($data['password']),
         ]);
     }

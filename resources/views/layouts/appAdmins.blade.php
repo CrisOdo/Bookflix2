@@ -84,7 +84,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/author/create">Agregar</a>
-                            <a class="dropdown-item" href=>Eliminar</a>
                             <a class="dropdown-item" href="/author/index">Listar</a>
                         </div>
                     </li>
@@ -95,7 +94,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/genre/create">Agregar</a>
-                            <a class="dropdown-item" href=>Eliminar</a>
                             <a class="dropdown-item" href="/genre/index">Listar</a>
                         </div>
                     </li>
@@ -106,7 +104,6 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/editorial/create">Agregar</a>
-                            <a class="dropdown-item" href=>Eliminar</a>
                             <a class="dropdown-item" href="/editorial/index">Listar</a>
                         </div>
                     </li>
@@ -126,8 +123,7 @@
                             Capitulo
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">                        
-                            <a class="dropdown-item" href="/chapter/create">Agregar</a>
-                            <a class="dropdown-item" href=>Eliminar</a>                            
+                            <a class="dropdown-item" href="/chapter/create">Agregar</a>                            
                         </div>
                     </li>
 
@@ -146,8 +142,8 @@
                             Reportes
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href=>Suscripciones</a>
-                            <a class="dropdown-item" href=>Menos leído</a>
+                            <a class="dropdown-item" href="/reporteSuscripciones">Suscripciones</a>
+                            <a class="dropdown-item" href="/reporteMenosLeido">Menos leído</a>
                         </div>
                     </li>
                 </ul>

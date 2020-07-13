@@ -29,7 +29,9 @@
                                 <select id="book_id" type="text" class="form-control @error('book_id') is-invalid @enderror" name="book_id" value="{{ old('book_id') }}" autocomplete="book_id" autofocus>>
                                     <option value="">Seleccione</option>
                                     @foreach ($books as $book)
+                                    @if($book->cantidad < $book-> totalCapitulos)
                                     <option value="{{$book['id'] }}"> {{ $book['name']}}</option>
+                                    @endif
                                     @endforeach
                                 </select>
 

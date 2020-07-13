@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email','username', 'password','titular','tarjeta','ccv','año','mes','historial_id','favoritos_id',
+        'name', 'email','username', 'password','titular','tarjeta','ccv','año','mes','tipo','perfiles','perfilElegido','perfilesActivos','librosTerminados', 'spoilerAlert'
     ];
 
     /**
@@ -35,5 +35,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'perfiles' => 'array',
+        'perfilesActivos' => 'array',
+        'librosTerminados' => 'array'
     ];
+    
 }

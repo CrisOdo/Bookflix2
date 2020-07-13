@@ -10,7 +10,7 @@
                     <form method="POST" action="/book/delete/<?php echo e($libro->id); ?>" enctype="multipart/form-data">
                             <?php echo csrf_field(); ?>
                             <?php echo method_field('DELETE'); ?>
-                            <div class="card-header">¿Está seguro que desea eliminar el libro <?php echo e($libro->name); ?> ?</div>
+                            <div>¿Está seguro que desea eliminar el libro <?php echo e($libro->name); ?>?</div>
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     Confirmar

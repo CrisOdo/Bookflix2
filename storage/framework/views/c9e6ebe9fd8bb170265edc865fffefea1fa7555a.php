@@ -48,7 +48,9 @@ endif;
 unset($__errorArgs, $__bag); ?>" name="book_id" value="<?php echo e(old('book_id')); ?>" autocomplete="book_id" autofocus>>
                                     <option value="">Seleccione</option>
                                     <?php $__currentLoopData = $books; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $book): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($book->cantidad < $book-> totalCapitulos): ?>
                                     <option value="<?php echo e($book['id']); ?>"> <?php echo e($book['name']); ?></option>
+                                    <?php endif; ?>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
 

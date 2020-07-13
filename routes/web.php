@@ -22,6 +22,38 @@ Route::get('/', function () {
 Auth::routes();
 
 
+
+Route::get('/reporteMenosLeido', 'ReportesController@reporteMenosLeido');
+Route::get('/generarReporteMenosLeido', 'ReportesController@generarReporteMenosLeido');
+Route::get('/reporteSuscripciones', 'ReportesController@reporteSuscripciones');
+Route::get('/generarReporteSuscipciones', 'ReportesController@generarReporteSuscipciones');
+
+Route::get('/favoritos/index', 'FavoritosController@index');
+Route::get('/marcarFavorito/{book}', 'FavoritosController@marcarFavorito');
+Route::get('/desmarcarFavorito/{book}', 'FavoritosController@desmarcarFavorito');
+
+Route::patch('/ASA/{user}', 'ProfileController@activarSpoilerAlert');
+Route::patch('/DSA/{user}', 'ProfileController@desactivarSpoilerAlert');
+
+Route::post('/comment/{user}', 'ComentarioController@store');
+Route::delete('/comment/delete/{book}', 'ComentarioController@delete');
+
+Route::get('/pasatePremium', 'PerfilController@confirmPremium');
+Route::patch('/pasatePremium/{user}', 'PerfilController@premium');
+Route::get('/pasateBase', 'PerfilController@confirmBase');
+Route::patch('/pasateBase/{user}', 'PerfilController@base');
+
+Route::get('/perfiles/index', 'PerfilController@index');
+Route::get('/perfiles/desactivar', 'PerfilController@confirmDesactivar');
+Route::delete('/perfiles/delete/{perfil}', 'PerfilController@desactivar');
+Route::get('/perfiles/deleted', 'PerfilController@deleted');
+
+Route::get('/perfil/create', 'PerfilController@create');
+Route::post('/perfil/new', 'PerfilController@newPerfil');
+Route::get('/chooseProfile', 'PerfilController@choose');
+Route::patch('/cp', 'PerfilController@marcarPerfilElegido');
+
+
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
@@ -42,6 +74,7 @@ Route::get('/editorial/create', 'EditorialsController@create');
 Route::post('/e', 'EditorialsController@store');
 
 
+Route::patch('/book/leido/{book}', 'UserBooksController@leido');
 Route::get('/book/search', 'UserBooksController@search');
 Route::get('/book/index', 'BooksController@index');
 Route::get('/book/type', 'BooksController@type');
@@ -102,3 +135,5 @@ Route::get('/home', 'HomeController@index');
 Route::get('/profile/show', 'ProfileController@index');
 Route::get('/profile/edit', 'ProfileController@edit')->name('profile.edit');
 Route::patch('/profile/update', 'ProfileController@update')->name('profile.update');
+
+

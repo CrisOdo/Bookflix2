@@ -56,10 +56,21 @@
                                 <?php echo e(Auth::user()->username); ?> <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">                                
                                 <a class="dropdown-item" href="/profile/show">
                                     Ver detalle cuenta
                                 </a>
+                                <a class="dropdown-item" href="/perfiles/index">
+                                    Perfiles
+                                </a>
+                                <a class="dropdown-item" href="/perfiles/desactivar">
+                                    Desactivar perfil
+                                </a>
+                                <?php if( Auth::user()->tipo == 2): ?>
+                                <a class="dropdown-item" href="/pasateBase">
+                                    Volver a abono básico
+                                </a>
+                                <?php endif; ?>
                                 <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Cerrar sesión
@@ -98,6 +109,16 @@
                             <a class="dropdown-item" href="/historial/index">Ver historial</a>
                         </div>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Favoritos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/favoritos/index">Ver favoritos</a>
+                        </div>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Novedad

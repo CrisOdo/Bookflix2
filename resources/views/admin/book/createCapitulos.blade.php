@@ -108,6 +108,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="totalCapitulos" class="col-md-4 col-form-label text-md-right">Cantidad total de capitulos</label>
+
+                            <div class="col-md-6">
+                                <input id="totalCapitulos" type="text" class="form-control @error('totalCapitulos') is-invalid @enderror" name="totalCapitulos" value="{{ old('totalCapitulos') }}" autocomplete="totalCapitulos" autofocus>
+
+                                @error('totalCapitulos')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="image" class="col-md-4 col-form-label text-md-right">Imagen</label>
 
                             <div class="col-md-6">

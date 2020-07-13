@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
@@ -20,6 +21,24 @@ class ProfileController extends Controller
     $miId = Auth::user()->id;
     $perfil = User::find($miId);
     return view('user.perfil.edit', compact('perfil'));
+  }
+
+  public function activarSpoilerAlert()
+  {
+    $usuario = Auth::user();
+    $usuario->update([
+      'spoilerAlert' =>true,
+    ]);
+    return Redirect::back();
+  }
+
+  public function desactivarSpoilerAlert()
+  {
+    $usuario = Auth::user();
+    $usuario->update([
+      'spoilerAlert' =>false,
+    ]);
+    return Redirect::back();
   }
 
   public function update(){    

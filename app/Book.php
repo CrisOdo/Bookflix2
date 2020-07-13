@@ -10,7 +10,12 @@ class Book extends Model
 
     protected $casts = [
         'chapters' => 'array',
+        'comentarios' => 'array',
     ];
+
+    public function comentarios(){
+        return $this ->hasMany(Comentario::class);
+    }
 
     public function chapters(){
         return $this ->hasMany(Chapter::class);

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use Auth;
+use App\Perfil;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        $perfilElegido = Perfil::find($user->perfilElegido);
+        return view('home', compact('perfilElegido'));
     }
 }

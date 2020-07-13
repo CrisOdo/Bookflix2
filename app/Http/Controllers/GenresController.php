@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class GenresController extends Controller
 {
@@ -42,7 +43,7 @@ class GenresController extends Controller
         'name' => $data['name'],
       ]);
   
-      return redirect('/genre/success');
+      return Redirect::back();
   
     }
 }
