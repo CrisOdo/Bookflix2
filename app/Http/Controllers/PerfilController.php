@@ -8,6 +8,7 @@ use Auth;
 use App\Historial;
 use App\Favorito;
 use App\Perfil;
+use App\Book;
 
 class PerfilController extends Controller
 {
@@ -74,9 +75,11 @@ class PerfilController extends Controller
 
     $perfilElegido = Perfil::find($data['perfilElegido']);
 
+    $libros = Book::inRandomOrder()->limit(6)->get();
+
     $user = Auth::user();
     $user->update($data);
-    return view('home', compact('perfilElegido'));
+    return view('home', compact('perfilElegido','libros'));
   }
 
   public function confirmDesactivar()

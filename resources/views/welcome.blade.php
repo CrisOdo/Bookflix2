@@ -13,8 +13,8 @@
                             <img src="/storage/{{$libro->image}}" class="w-100">
                         </a>
                     </div>
-                    @endif
-                    @endforeach
+                @endif
+                @endforeach
             </div>
         </div>
     </div>

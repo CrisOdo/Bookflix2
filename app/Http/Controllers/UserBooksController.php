@@ -97,12 +97,10 @@ class UserBooksController extends Controller
       $leido=false;
       $i=0;      
       while ($leido == false && $i < $tamaño) {        
-        if ($librosTerminados[$i]['id'] = $id) {
-          $librosTerminados[$i]['id'];    
+        if ($librosTerminados[$i]['id'] == $id) {             
           $leido=true;
-        } else {
-          $i=$i +1;
-        }        
+        } 
+           $i=$i +1;                
       }
     
 
