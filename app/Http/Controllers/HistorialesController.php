@@ -32,4 +32,13 @@ class HistorialesController extends Controller
 
       return view('user.historial.index', compact('historial','cantidad'));
     }   
+
+    public function terminados()
+    {          
+      $usuario = Auth::user();
+      $librosTerminados=$usuario->librosTerminados;   
+      $cantidad = count($librosTerminados);      
+
+      return view('user.historial.terminado', compact('librosTerminados','cantidad'));
+    } 
 }

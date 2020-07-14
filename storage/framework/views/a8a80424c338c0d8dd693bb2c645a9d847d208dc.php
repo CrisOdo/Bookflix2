@@ -107,6 +107,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/historial/index">Ver historial</a>
+                            <a class="dropdown-item" href="/historial/terminados">Libros terminados</a>
                         </div>
                     </li>
 

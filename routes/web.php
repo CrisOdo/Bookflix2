@@ -113,6 +113,7 @@ Route::post('/c', 'ChapterController@store');
 
 
 Route::get('/historial/index', 'HistorialesController@index');
+Route::get('/historial/terminados', 'HistorialesController@terminados');
 
 Route::get('/novedad/index', 'NovedadesController@index');
 Route::get('/novedad/lista', 'UserNovedadController@index');
